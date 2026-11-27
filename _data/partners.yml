@@ -1,0 +1,23 @@
+# Partners, vendors and certifications shown on the Home and About pages.
+# name (required) | category | status: "certified" or "partner" (optional badge)
+# credential: your certification name or level (optional) | url (optional) | logo: file in assets/img/partners/ (optional)
+- name: "Dante"
+  category: "Audio over IP"
+  status: "certified"
+  credential: "Dante Certification Level 2"
+  url: "https://www.audinate.com"
+- name: "Fortinet FortiGate"
+  category: "Firewalls and security"
+  status: "certified"
+  credential: "Fortinet NSE 3 Certified in Cybersecurity"
+  url: "https://www.fortinet.com"
+- name: "Apple"
+  category: "Device support and deployment"
+  status: "certified"
+  credential: "Apple Certified Support Professional"
+  url: "https://www.apple.com"
+- name: "Ruckus"
+  category: "Wi-Fi and switching"
+  status: ""
+  credential: ""
+  url: ""

@@ -1,0 +1,48 @@
+---
+layout: page
+title: Contact
+eyebrow: Get in touch
+lead: Tell us about your project and we'll work out the next step together.
+permalink: /contact/
+wide: true
+---
+{% assign ep = site.data.company.form_endpoint %}
+<div class="contact-grid">
+  <form id="contact-form" class="form"{% if ep and ep != "" %} action="{{ ep }}" method="post"{% endif %}>
+    {% if ep and ep != "" %}<input type="hidden" name="_subject" value="Website enquiry">{% endif %}
+    <label>Name<input name="name" type="text" autocomplete="name" required></label>
+    <label>Email<input name="email" type="email" autocomplete="email" required></label>
+    <label>Phone <span class="opt">(optional)</span><input name="phone" type="tel" autocomplete="tel"></label>
+    <label>What's this about?
+      <select name="topic">
+        <option value="">Not sure yet</option>
+        {% for s in site.data.services %}<option>{{ s.title }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Message<textarea name="message" rows="6" required></textarea></label>
+    <button class="btn" type="submit">Send message</button>
+    <p id="form-note" class="note" role="status" hidden>Your email app should open with the message ready to send. If nothing opens, email us directly at <a href="mailto:{{ site.data.company.email }}">{{ site.data.company.email }}</a>.</p>
+  </form>
+  <aside class="card">
+    <h3>Prefer to reach out directly?</h3>
+    <p><strong>Phone:</strong><br><a href="tel:{{ site.data.company.phone_href }}">{{ site.data.company.phone }}</a></p>
+    <p><strong>Email:</strong><br><a href="mailto:{{ site.data.company.email }}">{{ site.data.company.email }}</a></p>
+    <p><strong>Based in:</strong><br>{{ site.data.company.city }}, {{ site.data.company.province }}</p>
+  </aside>
+</div>
+
+{% unless ep and ep != "" %}
+<script>
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target;
+  var v = function (n) { return (f.elements[n].value || '').trim(); };
+  var subject = 'Website enquiry: ' + (v('topic') || 'General') + ' (' + v('name') + ')';
+  var body = 'Name: ' + v('name') + '\r\nEmail: ' + v('email') + '\r\nPhone: ' + v('phone') +
+             '\r\nTopic: ' + (v('topic') || 'Not sure yet') + '\r\n\r\n' + v('message');
+  window.location.href = 'mailto:{{ site.data.company.email }}?subject=' + encodeURIComponent(subject) +
+                         '&body=' + encodeURIComponent(body);
+  document.getElementById('form-note').hidden = false;
+});
+</script>
+{% endunless %}

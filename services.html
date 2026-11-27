@@ -1,0 +1,37 @@
+---
+layout: page
+title: Services
+eyebrow: Specialities
+lead: Folly Consulting works across networks, domains and email, and AV, with integration, development and special projects alongside.
+permalink: /services/
+wide: true
+---
+<nav class="jump" aria-label="Specialities">
+{% for s in site.data.services %}<a href="#{{ s.id }}">{{ s.title }}</a>{% endfor %}
+</nav>
+
+{% for s in site.data.services %}
+<article class="svc" id="{{ s.id }}">
+  <h2>{{ s.title }}</h2>
+  <p class="svc-sum">{{ s.summary }}</p>
+  <div class="svc-cols">
+    <div>
+      <h3>What it covers</h3>
+      <ul>{% for c in s.covers %}<li>{{ c }}</li>{% endfor %}</ul>
+    </div>
+    <div>
+      <h3>Typical engagements</h3>
+      <ul>{% for e in s.engagements %}<li>{{ e }}</li>{% endfor %}</ul>
+    </div>
+  </div>
+  {% if s.pricing %}
+  <div class="svc-price">
+    <h3>Pricing</h3>
+    <ul>{% for line in s.pricing %}<li>{{ line }}</li>{% endfor %}</ul>
+  </div>
+  {% endif %}
+  {% if s.link %}<p><a href="{{ s.link | relative_url }}">See development projects &rarr;</a></p>{% endif %}
+</article>
+{% endfor %}
+
+<p class="note">Not sure which area your project falls under? <a href="{{ '/contact/' | relative_url }}">Get in touch</a> and we'll talk it through. If your project is outside what we do, or larger than we take on, we'll refer you to another organization that's a better fit.</p>

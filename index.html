@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Networking & AV installation in Airdrie, Alberta
+title: Technology consulting for networks, AV and integration
 ---
 <section class="hero">
   <div class="wrap">
     <i class="logo-mark hero-mark" role="img" aria-label="Folly Consulting logo"></i>
-    <p class="eyebrow">Networking &amp; AV installation &middot; {{ site.data.company.city }}, {{ site.data.company.province }}</p>
+    <p class="eyebrow">Independent consultant &middot; {{ site.data.company.city }}, {{ site.data.company.province }}</p>
     <h1>{{ site.data.company.tagline }}</h1>
     <p class="lead">{{ site.data.company.summary }}</p>
     <p class="actions">
-      <a class="btn" href="{{ '/contact/' | relative_url }}">Request a quote</a>
-      <a class="btn ghost" href="{{ '/services/' | relative_url }}">See services</a>
+      <a class="btn" href="{{ '/contact/' | relative_url }}">Start a conversation</a>
+      <a class="btn ghost" href="{{ '/services/' | relative_url }}">See specialities</a>
     </p>
   </div>
   {% include ridge.html %}
@@ -18,14 +18,15 @@ title: Networking & AV installation in Airdrie, Alberta
 
 <section class="section">
   <div class="wrap">
-    <h2>What we do</h2>
-    <p class="sub">From a single room to a full site, installed tidy and documented.</p>
+    <h2>Specialities</h2>
+    <p class="sub">Six areas of work, from planning through to hands-on delivery.</p>
     <div class="cards">
       {% for s in site.data.services %}
-      <article class="card">
+      <a class="card link" href="{{ '/services/' | relative_url }}#{{ s.id }}">
         <h3>{{ s.title }}</h3>
-        <p>{{ s.text }}</p>
-      </article>
+        <p>{{ s.summary }}</p>
+        <span class="more">Read more &rarr;</span>
+      </a>
       {% endfor %}
     </div>
   </div>
@@ -33,19 +34,40 @@ title: Networking & AV installation in Airdrie, Alberta
 
 <section class="section alt">
   <div class="wrap">
-    <h2>How we work</h2>
+    <h2>How a consulting engagement works</h2>
     <ol class="steps">
-      <li><h3>Site survey</h3><p>We visit, measure and note rooms, cable paths and rack needs.</p></li>
-      <li><h3>Clear quote</h3><p>A written estimate covering labour, materials and equipment.</p></li>
-      <li><h3>Clean install</h3><p>Neat work, labelled cabling and a handover you can follow.</p></li>
+      <li><h3>Assess</h3><p>Understand what you have, what you need and what's in the way.</p></li>
+      <li><h3>Plan</h3><p>Recommend a clear scope, a realistic budget and a sensible order of work.</p></li>
+      <li><h3>Deliver</h3><p>Carry out the work, or oversee it, and document what was done.</p></li>
+      <li><h3>Support</h3><p>Hand over properly and stay available as things change.</p></li>
     </ol>
   </div>
 </section>
 
+<section class="section">
+  <div class="wrap">
+    <div class="two">
+      <h2>Development, in the open</h2>
+      <p>Folly Consulting also builds tools and automation. Our projects live on GitHub, and this site lists what we're working on.</p>
+      <p><a class="btn" href="{{ '/development/' | relative_url }}">See development work</a></p>
+    </div>
+  </div>
+</section>
+
+{% if site.data.partners.size > 0 %}
+<section class="section alt">
+  <div class="wrap">
+    <h2>Partners &amp; certifications</h2>
+    <p class="sub">Platforms and vendors we work with. <a href="{{ '/about/' | relative_url }}#partners">More on our credentials</a>.</p>
+    {% include partners.html %}
+  </div>
+</section>
+{% endif %}
+
 <section class="cta">
   <div class="wrap">
-    <h2>Planning a network or AV project?</h2>
-    <p>Tell us about the space and we'll book a site visit.</p>
+    <h2>Have a network, AV or integration project?</h2>
+    <p>Tell us what you're trying to do and we'll work out the next step.</p>
     <a class="btn" href="{{ '/contact/' | relative_url }}">Get in touch</a>
   </div>
 </section>

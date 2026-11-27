@@ -1,0 +1,12 @@
+# Repos from the Folly-Consulting GitHub organization appear on the Development page automatically.
+org_url: "https://github.com/Folly-Consulting"
+
+# Repo names to leave out of the automatic list, for example ["Website"]
+hide: []
+
+# Projects you contribute to that live outside the organization. Remove the # to add one.
+contributing: []
+#  - name: "example/project"
+#    url: "https://github.com/example/project"
+#    role: "Contributor"
+#    text: "One line on what the project is and what you do on it."

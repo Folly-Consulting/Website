@@ -1,0 +1,50 @@
+---
+layout: page
+title: Development
+eyebrow: Tools &amp; open work
+lead: Custom automation, integrations and web projects, built in the open where we can.
+permalink: /development/
+wide: true
+---
+<h2>What we build</h2>
+<div class="cards">
+  <article class="card"><h3>Automation</h3><p>Scripts and workflows that take repetitive network and AV tasks off your plate.</p></article>
+  <article class="card"><h3>Integrations</h3><p>Small tools and APIs that connect systems which don't talk to each other.</p></article>
+  <article class="card"><h3>Dashboards and internal tools</h3><p>Simple views of the information you actually need.</p></article>
+  <article class="card"><h3>Websites and web apps</h3><p>Clean, maintainable sites. This one is a Jekyll site on GitHub Pages.</p></article>
+</div>
+
+<h2 class="spaced">Projects on GitHub</h2>
+<p class="sub">Repositories from the <a href="{{ site.data.projects.org_url }}">Folly-Consulting GitHub organization</a>. This list updates when the site is rebuilt.</p>
+
+{% assign shown = 0 %}
+<div class="repos">
+{% for repo in site.github.public_repositories %}
+  {% unless site.data.projects.hide contains repo.name %}
+  {% assign shown = shown | plus: 1 %}
+  <a class="repo" href="{{ repo.html_url }}">
+    <h3>{{ repo.name }}</h3>
+    <p>{% if repo.description %}{{ repo.description }}{% else %}No description yet.{% endif %}</p>
+    <span class="meta">{% if repo.language %}{{ repo.language }} &middot; {% endif %}Updated {{ repo.pushed_at | date: "%b %-d, %Y" }}</span>
+  </a>
+  {% endunless %}
+{% endfor %}
+</div>
+{% if shown == 0 %}
+<p class="note">Projects will appear here as they're added to the <a href="{{ site.data.projects.org_url }}">organization</a>.</p>
+{% endif %}
+
+{% if site.data.projects.contributing.size > 0 %}
+<h2 class="spaced">Projects we contribute to</h2>
+<div class="repos">
+{% for p in site.data.projects.contributing %}
+  <a class="repo" href="{{ p.url }}">
+    <h3>{{ p.name }}</h3>
+    <p>{{ p.text }}</p>
+    <span class="meta">{{ p.role }}</span>
+  </a>
+{% endfor %}
+</div>
+{% endif %}
+
+<p class="note">Have something you'd like built? <a href="{{ '/contact/' | relative_url }}">Get in touch</a>. If it's outside what we build, we'll refer you to another organization that can help.</p>

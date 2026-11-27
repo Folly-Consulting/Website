@@ -1,10 +1,15 @@
 name: Folly Consulting
 legal_name: Folly Consulting Corp.
-tagline: Networks and AV, built to last.
-summary: Networking and audio-visual installation for homes and businesses in Airdrie and across Alberta.
+tagline: Technology consulting for networks, AV and integration.
+summary: "Independent consulting on network management, AV systems and the integration that ties them together. Based in Airdrie, Alberta."
 city: Airdrie
 province: Alberta
+phone: 403-809-8697
 phone_href: "+14038098697"
 email: hello@follyconsulting.com
 web: follyconsulting.com
 incorporated: 2026
+
+# Contact form: leave empty to open the visitor's email app (mailto).
+# To receive submissions directly, paste a Formspree form URL here, e.g. "https://formspree.io/f/xxxxxxx"
+form_endpoint: ""

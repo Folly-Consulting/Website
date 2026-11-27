@@ -1,0 +1,14 @@
+{% if site.data.partners.size > 0 %}
+<div class="partners">
+{% for p in site.data.partners %}
+  {% if p.url and p.url != "" %}<a class="partner" href="{{ p.url }}" rel="noopener">{% else %}<div class="partner">{% endif %}
+    {% if p.logo and p.logo != "" %}<img src="{{ '/assets/img/partners/' | append: p.logo | relative_url }}" alt="{{ p.name }} logo" loading="lazy">{% endif %}
+    <h3>{{ p.name }}</h3>
+    {% if p.category and p.category != "" %}<p class="cat">{{ p.category }}</p>{% endif %}
+    {% if p.status == "certified" %}<span class="badge">Certified</span>{% elsif p.status == "partner" %}<span class="badge">Partner</span>{% endif %}
+    {% if p.credential and p.credential != "" %}<p class="cred">{{ p.credential }}</p>{% endif %}
+  {% if p.url and p.url != "" %}</a>{% else %}</div>{% endif %}
+{% endfor %}
+</div>
+<p class="note small">Product names and logos are trademarks of their respective owners.</p>
+{% endif %}

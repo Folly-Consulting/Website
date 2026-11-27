@@ -22,9 +22,14 @@ Open http://localhost:4000
 |---|---|
 | Phone, email, tagline | `_data/company.yml` |
 | Menu links | `_data/navigation.yml` |
-| Services list | `_data/services.yml` |
-| Pages | `index.html`, `services.md`, `about.md`, `contact.md` |
+| Specialities (home cards + Services page) | `_data/services.yml` |
+| Partners and certifications (Home + About) | `_data/partners.yml` |
+| Contact form delivery | `form_endpoint` in `_data/company.yml` |
+| GitHub projects: hide repos, add outside projects | `_data/projects.yml` |
+| Pages | `index.html`, `services.html`, `development.html`, `about.html`, `contact.html` |
 | Colours, fonts, spacing | `assets/css/style.css` (variables at the top) |
 | Logo | `assets/img/logo-mark.png` (transparent; recolours via CSS) |
 
 Add a page: create `name.md` with `layout: page`, a `title`, and a `permalink`, then add it to `navigation.yml`.
+
+The Development page lists the organization's public repos automatically (via `site.github`). It refreshes on each rebuild, which happens when you push a commit.
