@@ -1,0 +1,10 @@
+{% assign svcs = site.services | sort: "order" %}
+<div class="cards">
+  {% for s in svcs %}
+  <a class="card link" href="{{ s.url | relative_url }}">
+    <h3>{{ s.title }}</h3>
+    <p>{{ s.summary }}</p>
+    <span class="more">Learn more &rarr;</span>
+  </a>
+  {% endfor %}
+</div>

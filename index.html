@@ -20,15 +20,7 @@ title: Technology consulting for networks, AV and integration
   <div class="wrap">
     <h2>Specialities</h2>
     <p class="sub">Six areas of work, from planning through to hands-on delivery.</p>
-    <div class="cards">
-      {% for s in site.data.services %}
-      <a class="card link" href="{{ '/services/' | relative_url }}#{{ s.id }}">
-        <h3>{{ s.title }}</h3>
-        <p>{{ s.summary }}</p>
-        <span class="more">Read more &rarr;</span>
-      </a>
-      {% endfor %}
-    </div>
+    {% include service-cards.html %}
   </div>
 </section>
 

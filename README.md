@@ -22,7 +22,7 @@ Open http://localhost:4000
 |---|---|
 | Phone, email, tagline | `_data/company.yml` |
 | Menu links | `_data/navigation.yml` |
-| Specialities (home cards + Services page) | `_data/services.yml` |
+| Each service: card text, write-up, photos | `_services/<name>.md` (front matter = card and lists; text below the dashes = write-up) |
 | Partners and certifications (Home + About) | `_data/partners.yml` |
 | Contact form delivery | `form_endpoint` in `_data/company.yml` |
 | GitHub projects: hide repos, add outside projects | `_data/projects.yml` |
@@ -33,3 +33,13 @@ Open http://localhost:4000
 Add a page: create `name.md` with `layout: page`, a `title`, and a `permalink`, then add it to `navigation.yml`.
 
 The Development page lists the organization's public repos automatically (via `site.github`). It refreshes on each rebuild, which happens when you push a commit.
+
+### Adding photos to a service
+Put the image files in `assets/img/work/`, then add them to that service's front matter:
+```
+gallery:
+  - src: rack-install.jpg
+    alt: Tidy network rack after an upgrade
+    caption: Rack clean-up and re-patch
+```
+Resize photos to about 1600 px wide before uploading so pages stay fast.

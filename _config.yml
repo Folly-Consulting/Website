@@ -5,6 +5,16 @@ baseurl: ""                          # leave empty for a user/custom-domain site
 lang: en-CA
 markdown: kramdown
 permalink: pretty
+collections:
+  services:
+    output: true
+    permalink: /services/:name/
+defaults:
+  - scope:
+      path: ""
+      type: services
+    values:
+      layout: service
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap

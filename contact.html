@@ -10,16 +10,21 @@ wide: true
 <div class="contact-grid">
   <form id="contact-form" class="form"{% if ep and ep != "" %} action="{{ ep }}" method="post"{% endif %}>
     {% if ep and ep != "" %}<input type="hidden" name="_subject" value="Website enquiry">{% endif %}
-    <label>Name<input name="name" type="text" autocomplete="name" required></label>
-    <label>Email<input name="email" type="email" autocomplete="email" required></label>
-    <label>Phone <span class="opt">(optional)</span><input name="phone" type="tel" autocomplete="tel"></label>
-    <label>What's this about?
-      <select name="topic">
-        <option value="">Not sure yet</option>
-        {% for s in site.data.services %}<option>{{ s.title }}</option>{% endfor %}
-      </select>
-    </label>
-    <label>Message<textarea name="message" rows="6" required></textarea></label>
+    <div class="form-row">
+      <label><span class="lbl">Name</span><input name="name" type="text" autocomplete="name" required></label>
+      <label><span class="lbl">Email</span><input name="email" type="email" autocomplete="email" required></label>
+    </div>
+    <div class="form-row">
+      <label><span class="lbl">Phone <span class="opt">(optional)</span></span><input name="phone" type="tel" autocomplete="tel"></label>
+      <label><span class="lbl">What's this about?</span>
+        <select name="topic">
+          <option value="">Not sure yet</option>
+          {% assign svcs = site.services | sort: "order" %}
+          {% for s in svcs %}<option>{{ s.title }}</option>{% endfor %}
+        </select>
+      </label>
+    </div>
+    <label><span class="lbl">Message</span><textarea name="message" rows="6" required></textarea></label>
     <button class="btn" type="submit">Send message</button>
     <p id="form-note" class="note" role="status" hidden>Your email app should open with the message ready to send. If nothing opens, email us directly at <a href="mailto:{{ site.data.company.email }}">{{ site.data.company.email }}</a>.</p>
   </form>

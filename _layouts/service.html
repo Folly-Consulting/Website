@@ -1,0 +1,52 @@
+---
+layout: default
+---
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a class="crumb" href="{{ '/services/' | relative_url }}">&larr; All services</a></p>
+    <h1>{{ page.title }}</h1>
+    <p class="lead">{{ page.summary }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap prose wide">
+    <div class="writeup">{{ content }}</div>
+
+    <div class="svc svc-plain">
+      <div class="svc-cols">
+        <div>
+          <h3>What it covers</h3>
+          <ul>{% for c in page.covers %}<li>{{ c }}</li>{% endfor %}</ul>
+        </div>
+        <div>
+          <h3>Typical engagements</h3>
+          <ul>{% for e in page.engagements %}<li>{{ e }}</li>{% endfor %}</ul>
+        </div>
+      </div>
+      {% if page.pricing %}
+      <div class="svc-price">
+        <h3>Pricing</h3>
+        <ul>{% for line in page.pricing %}<li>{{ line }}</li>{% endfor %}</ul>
+      </div>
+      {% endif %}
+    </div>
+
+    {% if page.gallery and page.gallery.size > 0 %}
+    <h2 class="spaced">Photos</h2>
+    <div class="gallery">
+      {% for g in page.gallery %}
+      <figure>
+        <img src="{{ '/assets/img/work/' | append: g.src | relative_url }}" alt="{{ g.alt }}" loading="lazy">
+        {% if g.caption %}<figcaption>{{ g.caption }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <p class="actions-row">
+      <a class="btn" href="{{ '/contact/' | relative_url }}">Talk to us about this</a>
+      {% if page.link %}<a class="btn alt" href="{{ page.link | relative_url }}">See development projects</a>{% endif %}
+      <a class="btn alt" href="{{ '/services/' | relative_url }}">All services</a>
+    </p>
+  </div>
+</section>

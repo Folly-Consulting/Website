@@ -98,7 +98,15 @@ nav a:hover,nav a[aria-current]{color:#fff;border-bottom-color:var(--bark)}
 .repo .meta{font-size:.8rem;font-weight:700;letter-spacing:.04em;color:var(--muted)}
 
 /* contact form */
-.contact-grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+.contact-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr);align-items:start}
+@media (min-width:820px){.contact-grid{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}}
+.form{min-width:0}
+.form-row{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:560px){.form-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.form label{min-width:0}
+.form .lbl{display:block}
+.form select,.form input,.form textarea{font-weight:400;max-width:100%}
+.form textarea{resize:vertical;min-height:140px}
 .form{display:grid;gap:16px}
 .form label{display:grid;gap:6px;font-weight:700;font-size:.9rem}
 .form .opt{font-weight:400;color:var(--muted)}
@@ -119,3 +127,18 @@ a.partner:hover{border-top-color:var(--bark)}
 .note.small{font-size:.8rem;margin-top:14px}
 
 .svc-price{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line)}
+
+/* service pages */
+.crumb{color:#C9A27F;text-decoration:none}
+.crumb:hover{color:#fff}
+.writeup{max-width:720px;margin-bottom:28px}
+.writeup p{margin:0 0 1em}
+.svc-plain{border-left-color:var(--bark)}
+.btn.alt{background:transparent;color:var(--accent);border-color:var(--accent)}
+.actions-row{display:flex;flex-wrap:wrap;gap:12px;margin:32px 0 0}
+.gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.gallery figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.gallery figcaption{padding:10px 14px;font-size:.88rem;color:var(--muted)}
+
+.form label select,.form label input,.form label textarea{font-weight:400}
